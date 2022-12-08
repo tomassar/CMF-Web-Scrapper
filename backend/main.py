@@ -3,14 +3,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import webscrapper
 from pydantic import BaseModel
-from mangum import Mangum
 
 class Item(BaseModel):
     nombre: str
 
 
 app = FastAPI()
-handler = Mangum(app)
 
 origins = [
     "http://localhost:3000",
