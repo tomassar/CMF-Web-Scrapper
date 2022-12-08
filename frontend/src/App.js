@@ -16,7 +16,7 @@ function App() {
   }
 
   useEffect(()=>{
-    axios.get('/api/getNombresEmpresas').then(res => setNombresEmpresas(res.data))
+    axios.get(`http://34.227.172.74/api/getNombresEmpresas`).then(res => setNombresEmpresas(res.data))
   },[])
   console.log(nombresEmpresas)
   return (
