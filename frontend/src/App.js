@@ -14,7 +14,7 @@ function App() {
       nombre: empresaSeleccionada
     }).then(res => setLiquidezGeneral(res.data))
   }
- let hola = "ola"
+
   useEffect(()=>{
     axios.get('/api/getNombresEmpresas').then(res => setNombresEmpresas(res.data))
   },[])
