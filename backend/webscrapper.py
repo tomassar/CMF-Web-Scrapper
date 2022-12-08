@@ -1,16 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from webdriver_manager.firefox import GeckoDriverManager
-
 
 def getNombresEmpresas():
     print("Entré a getNombresEmpresas")
 
     options = Options()
     options.headless = True
-    options.addArguments("--no-sandbox")
-    options.addArguments("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome('chromedriver', chrome_options=options)
     print(driver.get('https://www.cmfchile.cl/institucional/mercados/novedades_envio_sa_ifrs.php?mm_ifrs=12&aa_ifrs=2021'))
     
@@ -27,8 +25,8 @@ def getLiquidezGeneral(nombreEmpresa):
     print("Entré a getliquidezgenerl")
     options = Options()
     options.headless = True
-    options.addArguments("--no-sandbox")
-    options.addArguments("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome('chromedriver', chrome_options=options)
     driver.get('https://www.cmfchile.cl/institucional/mercados/novedades_envio_sa_ifrs.php?mm_ifrs=12&aa_ifrs=2021')
     element = driver.find_element(By.LINK_TEXT,nombreEmpresa)
