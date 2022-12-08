@@ -22,10 +22,10 @@ function App() {
   
   return (
     <div className="App" style={{display:"flex", flexDirection:"column", justifyContent:'center', alignItems:"center",marginTop:"50px"}}>
-      <h3> Seleccione la empresa a revisar</h3>
-      <div style={{width:'50vw'}}>
+      <h1> Seleccione la empresa a revisar</h1>
+      <div style={{width:'35vw'}}>
         <Select onChange={(empresaSeleccionada) => setEmpresaSeleccionada(empresaSeleccionada.value)} options={nombresEmpresas}/>
-        <button onClick={() => getInfoEmpresa()}>Obtener información</button>
+        <button className="button-17" role="button" onClick={() => getInfoEmpresa()}>Obtener información</button>
       </div>
       <h3>Liquidez General: {liquidezGeneral}</h3>
     </div>
