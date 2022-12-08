@@ -54,13 +54,3 @@ def getLiquidezGeneral(nombreEmpresa):
     liquidezGeneral = str(round(activoCorrienteTotal/pasivoCorrienteTotal,2))+" veces"
     print(liquidezGeneral)
     return liquidezGeneral
-
-def hola():
-    print("estoy en hola")
-    options = Options()
-    options.headless = True
-    driver = webdriver.Chrome('chromedriver', chrome_options=options)
-
-    print(driver)
-    print(driver.get('https://www.google.com/'))
-    return "hola"

@@ -10,15 +10,16 @@ function App() {
 
   const getInfoEmpresa = () => {
     console.log(empresaSeleccionada)
-    axios.post(`/api/getLiquidezGeneral`,{
+    axios.post(process.env.REACT_APP_BASE_URL+`/api/getLiquidezGeneral`,{
       nombre: empresaSeleccionada
     }).then(res => setLiquidezGeneral(res.data))
   }
 
   useEffect(()=>{
-    axios.get(`http://34.227.172.74/api/getNombresEmpresas`).then(res => setNombresEmpresas(res.data))
+    axios.get(process.env.REACT_APP_BASE_URL+`/api/getNombresEmpresas`).then(res => setNombresEmpresas(res.data))
   },[])
   console.log(nombresEmpresas)
+  
   return (
     <div className="App" style={{display:"flex", flexDirection:"column", justifyContent:'center', alignItems:"center",marginTop:"50px"}}>
       <h3> Seleccione la empresa a revisar</h3>

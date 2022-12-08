@@ -7,12 +7,7 @@ from pydantic import BaseModel
 class Item(BaseModel):
     nombre: str
 
-
 app = FastAPI()
-
-origins = [
-    "http://localhost:3000",
-]
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,20 +22,7 @@ def read_root():
     nombresEmpresas = webscrapper.getNombresEmpresas()
     return nombresEmpresas
 
-@app.get("/api/hola")
-def hola():
-    return webscrapper.hola()
-
 @app.post("/api/getLiquidezGeneral")
 async def getLiquidezGeneral(item: Item):
     liquidezGeneral = webscrapper.getLiquidezGeneral(item.nombre)
     return liquidezGeneral
-
-""" @app.get("/api/getLiquidezGeneral/{nombreEmpresa}")
-def read_root(nombreEmpresa: str):
-    liquidezGeneral = webscrapper.getLiquidezGeneral(nombreEmpresa)
-    return liquidezGeneral """
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
